@@ -1,0 +1,10 @@
+#### b. `monthly_sales_query.sql`  
+Create a `.sql` file and paste the main query:
+```sql
+SELECT 
+    DATE_FORMAT(STR_TO_DATE(OrderDate, '%d-%m-%Y'), '%Y-%m') AS Month,
+    SUM(Sales) AS Total_Sales
+FROM online_store_sales_large
+WHERE OrderDate IS NOT NULL
+GROUP BY Month
+ORDER BY Month;
